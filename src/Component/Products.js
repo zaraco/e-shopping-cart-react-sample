@@ -38,8 +38,11 @@ class Products extends Component {
             }
 
         ]
+        localStorage.setItem('products', JSON.stringify(products))
+
         this.state = {
             products: products,
+
         }
     }
 

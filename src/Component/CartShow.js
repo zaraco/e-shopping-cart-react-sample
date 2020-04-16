@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Table from "react-bootstrap/Table";
-import {Button} from "react-bootstrap";
+import {Button, Alert} from "react-bootstrap";
 
 class CartShow extends Component {
     constructor() {
@@ -11,20 +11,25 @@ class CartShow extends Component {
             cart = []
         }
         this.state = {
-            cart : cart
+            cart : cart,
+            message:''
         }
     }
 
     clickHandler = () => {
+
         localStorage.setItem('cart', JSON.stringify([]))
 
         this.setState({
-            cart: []
+            cart: [],
+            message: 'you paid successfully'
         })
     }
 
     render() {
-        let total = this.state.cart.length>0 ? this.state.cart.map((item) =>
+        let alert = this.state.message != '' ? <Alert variant= "success" >{this.state.message}</Alert> : ''
+console.log(this.state.message)
+         let total = this.state.cart.length>0 ? this.state.cart.map((item) =>
             <tr>
 
                 <td>{item.name}</td>
@@ -36,7 +41,6 @@ class CartShow extends Component {
 
         return (
             <>
-
                 <Table striped bordered hover>
                     <thead>
                     <tr>
@@ -53,6 +57,7 @@ class CartShow extends Component {
 
                     </tbody>
                 </Table>
+                {alert}
                 <Button variant="info" onClick={this.clickHandler}>Payment</Button>
             </>
         );
