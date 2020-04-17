@@ -10,7 +10,7 @@ class Products extends Component {
                 name: "parsley",
                 price: 8,
                 amount: 20,
-                image: 'italian-parsley-leaves.jpg',
+                image: '/italian-parsley-leaves.jpg',
             },
 
             {
@@ -18,7 +18,7 @@ class Products extends Component {
                 name: "basil",
                 price: 10,
                 amount: 10,
-                image: 'Preserve-Fresh-Basil.jpg',
+                image: '/Preserve-Fresh-Basil.jpg',
             },
 
             {
@@ -26,7 +26,7 @@ class Products extends Component {
                 name: "mango",
                 price: 3 ,
                 amount: 30,
-                image: '54522547-mango-cubes-and-mango-fruit-isolated-on-a-white-background-.jpg',
+                image: '/54522547-mango-cubes-and-mango-fruit-isolated-on-a-white-background-.jpg',
             },
 
             {
@@ -34,7 +34,7 @@ class Products extends Component {
                 name: "banana",
                 price: 3.5 ,
                 amount: 15,
-                image: '42E9as7NaTaAi4A6JcuFwG-320-80.jpg',
+                image: '/42E9as7NaTaAi4A6JcuFwG-320-80.jpg',
             }
 
         ]

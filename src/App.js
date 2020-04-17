@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {
     Container,
     Row,
@@ -19,7 +19,8 @@ import Products from "./Component/Products";
 import CartShow from "./Component/CartShow";
 import Contact from "./Component/Contact";
 import Home from "./Component/Home";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Product from "./Component/Product";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 
 
@@ -71,9 +72,9 @@ class App extends Component {
                             <br/>
 
                             <Jumbotron>
-                                <Navbar bg="light" expand="lg">
+                                <Navbar bg="light" expand="md">
                                     <Navbar.Brand href="/products">
-                                        <Image src="ecom (1).jpg" style={{
+                                        <Image src="/ecom (1).jpg" style={{
                                             height: "50px"
                                         }}>
 
@@ -84,9 +85,9 @@ class App extends Component {
                                             <Nav.Link href="/home">Home</Nav.Link>
                                             <Nav.Link href="/products">Products</Nav.Link>
                                             <Nav.Link href="/cart">CartShow</Nav.Link>
-                                            <Nav.Link href="/Contact">Contact Us</Nav.Link>
+                                            <Nav.Link href="/Contact">Contact</Nav.Link>
                                         </Nav>
-                                        <div style={{margin: "30px", fontSize: "2em"}}>
+                                        <div style={{marginRight: "30px", fontSize: "2em"}}>
                                             <FontAwesomeIcon icon={faShoppingCart}/>
                                         </div>
 
@@ -107,6 +108,7 @@ class App extends Component {
                                         <Route path='/products' component={Products}/>
                                         <Route path='/cart' component={CartShow}/>
                                         <Route path='/contact' component={Contact}/>
+                                        <Route path='/product/:id' component={Product}/>
 
                                     </Switch>
                                 </Router>
