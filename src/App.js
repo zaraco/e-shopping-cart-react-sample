@@ -12,7 +12,7 @@ import {
     Image,
     Nav,
     FormGroup,
-    ListGroup, ModalFooter
+    ListGroup, ModalFooter, Badge
 } from "react-bootstrap";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Products from "./Component/Products";
@@ -32,10 +32,15 @@ class App extends Component {
             localStorage.setItem('products', JSON.stringify([]))
             products = []
         }
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        if (!cart) {
+            cart = []
+        }
 
         super();
         this.state = {
             products: products,
+            cart: cart,
             filtered: [],
             search: ''
         }
@@ -84,7 +89,7 @@ class App extends Component {
                                         <Nav className="mr-auto">
                                             <Nav.Link href="/home">Home</Nav.Link>
                                             <Nav.Link href="/products">Products</Nav.Link>
-                                            <Nav.Link href="/cart">CartShow</Nav.Link>
+                                            <Nav.Link href="/cart">Cart <Badge variant="info">{this.state.cart.length}</Badge></Nav.Link>
                                             <Nav.Link href="/Contact">Contact</Nav.Link>
                                         </Nav>
                                         <div style={{marginRight: "30px", fontSize: "2em"}}>
