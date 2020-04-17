@@ -17,6 +17,11 @@ import {
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Products from "./Component/Products";
 import CartShow from "./Component/CartShow";
+import Contact from "./Component/Contact";
+import Home from "./Component/Home";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart} from '@fortawesome/free-solid-svg-icons'
+
 
 
 class App extends Component {
@@ -81,6 +86,10 @@ class App extends Component {
                                             <Nav.Link href="/cart">CartShow</Nav.Link>
                                             <Nav.Link href="/Contact">Contact Us</Nav.Link>
                                         </Nav>
+                                        <div style={{margin: "30px", fontSize: "2em"}}>
+                                            <FontAwesomeIcon icon={faShoppingCart}/>
+                                        </div>
+
                                         <Form inline>
                                             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.changeHandlerSearch}/>
                                         </Form>
@@ -94,10 +103,10 @@ class App extends Component {
                                 <br/>
                                 <Router>
                                     <Switch>
-                                        <Route path='/home'/>
+                                        <Route path='/home' component={Home}/>
                                         <Route path='/products' component={Products}/>
                                         <Route path='/cart' component={CartShow}/>
-                                        <Route path='/contact-us' />
+                                        <Route path='/contact' component={Contact}/>
 
                                     </Switch>
                                 </Router>
