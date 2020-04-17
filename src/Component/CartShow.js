@@ -10,9 +10,14 @@ class CartShow extends Component {
             localStorage.setItem('cart', JSON.stringify([]))
             cart = []
         }
+        let total = 0
+        cart.forEach((product) => {
+            total += product.price
+        })
         this.state = {
-            cart : cart,
-            message:''
+            cart: cart,
+            message: '',
+            total: total
         }
     }
 
@@ -27,13 +32,13 @@ class CartShow extends Component {
     }
 
     render() {
-        let alert = this.state.message != '' ? <Alert variant= "success" >{this.state.message}</Alert> : ''
-console.log(this.state.message)
-         let total = this.state.cart.length>0 ? this.state.cart.map((item) =>
+        let alert = this.state.message != '' ? <Alert variant="success">{this.state.message}</Alert> : ''
+        console.log(this.state.message)
+        let total = this.state.cart.length > 0 ? this.state.cart.map((item) =>
             <tr>
 
                 <td>{item.name}</td>
-                <td>{item.price}</td>
+                <td>{item.price} €</td>
                 <td><img src={item.image} style={{height: '40px'}}/></td>
 
             </tr>
@@ -54,7 +59,12 @@ console.log(this.state.message)
                     <tbody>
 
                     {total}
+                    <tr>
+                        <td style={{color: 'red', fontWeight: 'bold'}}>total</td>
+                        <td>{this.state.total}</td>
+                        <td></td>
 
+                    </tr>
                     </tbody>
                 </Table>
                 {alert}
